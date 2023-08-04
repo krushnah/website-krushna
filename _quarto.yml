@@ -1,0 +1,30 @@
+project:
+  type: website
+  resources:
+    - keybase.txt
+    - resume.pdf
+    - cv.pdf
+
+website:
+  title: "Krushna Hajare"
+
+  navbar:
+    right:
+      - text: "Home"
+        href: index.html
+        
+      - text: "Blog"
+        href: blog.qmd
+      
+  page-footer: "© Copyright 2023. Krushnah"
+format:
+  html:
+    theme: theme_krushna.scss
+    css: styles.css
+
+
+
+ 
+
+
+      

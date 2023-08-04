@@ -1,0 +1,52 @@
+---
+title: "How to make Tables in R using kableextra package"
+author: "Krushna Hajare"
+image: table.jpg
+editor: visual
+---
+
+These are the top six rows of the `penguins` data set.
+
+```{r}
+#|label: head of penguin data 
+library(kableExtra)
+library(palmerpenguins)
+
+peng <- head(penguins)
+
+peng
+```
+
+These are the last six rows of the `penguins` data set from R package `{palmerpenguins}`.
+
+```{r}
+
+peng_tail <- kbl(tail(penguins))
+
+peng_tail
+```
+
+## Table Styles
+This is classic_2 theme 
+```{r}
+kbl(peng) |>
+  kable_classic_2()
+
+```
+
+## Text hovering
+```{r}
+kbl(peng) |>
+  kable_classic_2("hover", full_width = F)
+```
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet mauris in ex ultricies elementum vel rutrum dolor. Phasellus tempor convallis dui, in hendrerit mauris placerat scelerisque. Maecenas a accumsan enim, a maximus velit. Pellentesque in risus eget est faucibus convallis nec at nulla. Phasellus nec lacinia justo. Morbi fermentum, orci id varius accumsan, nibh neque porttitor ipsum, consectetur luctus risus arcu ac ex. Aenean a luctus augue. Suspendisse et auctor nisl. Suspendisse cursus ultrices quam non vulputate. Phasellus et pharetra neque, vel feugiat erat. Sed feugiat elit at mauris commodo consequat. Sed congue lectus id mattis hendrerit. Mauris turpis nisl, congue eget velit sed, imperdiet convallis magna. Nam accumsan urna risus, non feugiat odio vehicula eget.
+```{r}
+kbl(peng) |>
+  kable_classic_2() |> 
+  column_spec(2, color = "red")
+```
+
+
+

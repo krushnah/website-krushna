@@ -1,0 +1,24 @@
+---
+#Front page wala index page 
+title: "Krushna Hajare"
+image: avatar.jpg
+about:
+  template: trestles
+  links:
+    - text: LinkedIn
+      icon: linkedin
+      url: "https://www.linkedin.com/in/krushna-hajare-252aa4242/"
+    - text: Twitter
+      icon: twitter
+      url: "https://twitter.com/krushna_jnv"
+    - text: GitHub
+      icon: github
+      url: "https://github.com/krushnah"
+---
+
+## Krushna Hajare
+
+Hey! I am Krushna Hajare, a graduate in Psychology currently leaning Data Science. I have learned both R and Python. 
+Thank you!
+
+
