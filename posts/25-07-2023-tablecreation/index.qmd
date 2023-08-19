@@ -11,7 +11,7 @@ categories:
   - R
   - r4ds
 ---
-kableExtra is the package in R and helps us to build common complex tables and also manipulate table styles. Today we are going to learn the use of `{kableExtra}` to make tables. And we are using `penguins` from `{palmerpenguins}`dataset for that.
+kableExtra is the package in R and helps us to build common complex tables and also manipulate table styles. Today we are going to learn the use of `{kableExtra}` to make tables. And we are using `penguins` from the `{palmerpenguins}` dataset for that.
 
 To use the package we have to call it. Here we called `{kableExtra}` and  `{palmerpenguins}` packages.
 These are the top six rows of the `penguins` data set.
@@ -24,11 +24,11 @@ peng <- head(penguins)
 peng
 
 ```
->same way we can see last rows by using tail() function
+>same way we can see the last rows by using tail() function
 
 ## Table Themes
-There are many themes present in package and we can use them according to our need. 
-For more themes you can visit to <https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html>
+There are many themes present in the package and we can use them according to our needs. 
+For more themes, you can visit <https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html>
 
 Here we use `{kable_classic_2}`
 ```{r}
@@ -37,7 +37,7 @@ kbl(peng) |>
 
 ```
 ## Table Heading 
-Whenever we make a table then it is good practice to give heading to the table. For heading, we can use caption argument in `{kbl}` and give it some values which we be your heading.  
+Whenever we make a table then it is good practice to give a title to the table. For the heading, we can use the caption argument in `{kbl}` and give it some values which will be your heading.  
 
 ```{r}
 kbl(peng, caption = "Recreating booktabs style table") |>
@@ -47,7 +47,7 @@ kbl(peng, caption = "Recreating booktabs style table") |>
 
 
 ## Text hovering
-This package also give us a option to hover. And we can set it width by giving it a of True/False
+This package also gives us the option to hover. And we can set its width by giving it a True/False
 
 ```{r}
 kbl(peng) |>
@@ -55,7 +55,7 @@ kbl(peng) |>
 ```
 
 ## Highlighting the column 
-In some case we want to highlight columns, then, `column_spec()` function we can use. 
+In some cases, we want to highlight columns, then, the `column_spec()` function we can use. 
 ```{r}
 kbl(peng) |>
   kable_classic_2() |> 
@@ -64,10 +64,10 @@ kbl(peng) |>
 
 ## Font styles 
 
-We all know there are various types of font available on internet and we can use that in our tables. We have to give an argument `html_font` and give the name of font as a value in html_font. 
+We all know there are various types of fonts available on the internet and we can use that in our tables. We have to give an argument `html_font` and give the name of the font as a value in html_font. 
 ```{r}
 
 kbl(peng) |>
   kable_classic_2("hover", html_font = "Cambria")
 ```
-
+In this way, you can make tables in R, for more details visit the website which I mentioned above. 
