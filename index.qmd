@@ -1,24 +1,73 @@
 ---
-#Front page wala index page 
-title: "Krushna Hajare"
-image: avatar.jpg
-about:
-  template: trestles
-  links:
-    - text: LinkedIn
-      icon: linkedin
-      url: "https://www.linkedin.com/in/krushna-hajare-252aa4242/"
-    - text: Twitter
-      icon: twitter
-      url: "https://twitter.com/krushna_jnv"
-    - text: GitHub
-      icon: github
-      url: "https://github.com/krushnah"
+title: "How to make Tables in R using kableExtra package"
+author: "Krushna Hajare"
+image: table.jpg
+date: 2023-08-19
+editor: visual
+toc: true
+categories:
+  - kableExtra
+  - tables
+  - R
+  - r4ds
 ---
+kableExtra is the package in R and helps us to build common complex tables and also manipulate table styles. Today we are going to learn the use of `{kableExtra}` to make tables. And we are using `penguins` from `{palmerpenguins}`dataset for that.
 
-## Krushna Hajare
+To use the package we have to call it. Here we called `{kableExtra}` and  `{palmerpenguins}` packages.
+These are the top six rows of the `penguins` data set.
 
-Hey! I am Krushna Hajare, a graduate in Psychology currently leaning Data Science. I have learned both R and Python. 
-Thank you!
+```{r}
+#|label: head of penguin data 
+library(kableExtra)
+library(palmerpenguins)
+peng <- head(penguins)
+peng
 
+```
+>same way we can see last rows by using tail() function
+
+## Table Themes
+There are many themes present in package and we can use them according to our need. 
+For more themes you can visit to <https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html>
+
+Here we use `{kable_classic_2}`
+```{r}
+kbl(peng) |>
+  kable_classic_2()
+
+```
+## Table Heading 
+Whenever we make a table then it is good practice to give heading to the table. For heading, we can use caption argument in `{kbl}` and give it some values which we be your heading.  
+
+```{r}
+kbl(peng, caption = "Recreating booktabs style table") |>
+  kable_classic_2() 
+```
+
+
+
+## Text hovering
+This package also give us a option to hover. And we can set it width by giving it a of True/False
+
+```{r}
+kbl(peng) |>
+  kable_classic_2("hover", full_width = F)
+```
+
+## Highlighting the column 
+In some case we want to highlight columns, then, `column_spec()` function we can use. 
+```{r}
+kbl(peng) |>
+  kable_classic_2() |> 
+  column_spec(2, color = "red")
+```
+
+## Font styles 
+
+We all know there are various types of font available on internet and we can use that in our tables. We have to give an argument `html_font` and give the name of font as a value in html_font. 
+```{r}
+
+kbl(peng) |>
+  kable_classic_2("hover", html_font = "Cambria")
+```
 
