@@ -18,7 +18,7 @@
     "href": "blog.html",
     "title": "Krushna Hajare",
     "section": "",
-    "text": "How to make Tables in R using kableextra package\n\n\n\n\n\n\n\n\n\n\n\n\n\nKrushna Hajare\n\n\n\n\n\n\nNo matching items"
+    "text": "How to make Tables in R using kableExtra package\n\n\n\n\n\n\n\nkableExtra\n\n\ntables\n\n\nR\n\n\nr4ds\n\n\n\n\n\n\n\n\n\n\n\n\nAug 19, 2023\n\n\nKrushna Hajare\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -35,11 +35,18 @@
     "text": "Hey! I am Krushna Hajare, a graduate in Psychology currently leaning Data Science. I have learned both R and Python. Thank you!"
   },
   {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Krushna Hajare",
+    "section": "Education",
+    "text": "Education\nI completed my schooling in Jawahar Navodaya Vidyalaya, Nagpur. And then joined Central University of Karnataka for BSc Psychology."
+  },
+  {
     "objectID": "posts/25-07-2023-tablecreation/index.html",
     "href": "posts/25-07-2023-tablecreation/index.html",
-    "title": "How to make Tables in R using kableextra package",
+    "title": "How to make Tables in R using kableExtra package",
     "section": "",
-    "text": "These are the top six rows of the penguins data set.\n#|label: head of penguin data \nlibrary(kableExtra)\nlibrary(palmerpenguins)\n\npeng &lt;- head(penguins)\n\npeng\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;\nThese are the last six rows of the penguins data set from R package {palmerpenguins}.\npeng_tail &lt;- kbl(tail(penguins))\n\npeng_tail\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\nChinstrap\nDream\n45.7\n17.0\n195\n3650\nfemale\n2009\n\n\nChinstrap\nDream\n55.8\n19.8\n207\n4000\nmale\n2009\n\n\nChinstrap\nDream\n43.5\n18.1\n202\n3400\nfemale\n2009\n\n\nChinstrap\nDream\n49.6\n18.2\n193\n3775\nmale\n2009\n\n\nChinstrap\nDream\n50.8\n19.0\n210\n4100\nmale\n2009\n\n\nChinstrap\nDream\n50.2\n18.7\n198\n3775\nfemale\n2009"
+    "text": "kableExtra is the package in R and helps us to build common complex tables and also manipulate table styles. Today we are going to learn the use of {kableExtra} to make tables. And we are using penguins from {palmerpenguins}dataset for that.\nTo use the package we have to call it. Here we called {kableExtra} and {palmerpenguins} packages. These are the top six rows of the penguins data set.\n#|label: head of penguin data \nlibrary(kableExtra)\nlibrary(palmerpenguins)\npeng &lt;- head(penguins)\npeng\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;"
   },
   {
     "objectID": "posts/25-07-2023-tablecreation/index.html#table-styles",
@@ -51,8 +58,36 @@
   {
     "objectID": "posts/25-07-2023-tablecreation/index.html#text-hovering",
     "href": "posts/25-07-2023-tablecreation/index.html#text-hovering",
-    "title": "How to make Tables in R using kableextra package",
+    "title": "How to make Tables in R using kableExtra package",
     "section": "Text hovering",
-    "text": "Text hovering\n\nkbl(peng) |&gt;\n  kable_classic_2(\"hover\", full_width = F)\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n2007\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n2007\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n2007\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n2007\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n2007\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale\n2007\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet mauris in ex ultricies elementum vel rutrum dolor. Phasellus tempor convallis dui, in hendrerit mauris placerat scelerisque. Maecenas a accumsan enim, a maximus velit. Pellentesque in risus eget est faucibus convallis nec at nulla. Phasellus nec lacinia justo. Morbi fermentum, orci id varius accumsan, nibh neque porttitor ipsum, consectetur luctus risus arcu ac ex. Aenean a luctus augue. Suspendisse et auctor nisl. Suspendisse cursus ultrices quam non vulputate. Phasellus et pharetra neque, vel feugiat erat. Sed feugiat elit at mauris commodo consequat. Sed congue lectus id mattis hendrerit. Mauris turpis nisl, congue eget velit sed, imperdiet convallis magna. Nam accumsan urna risus, non feugiat odio vehicula eget.\n\nkbl(peng) |&gt;\n  kable_classic_2() |&gt; \n  column_spec(2, color = \"red\")\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n2007\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n2007\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n2007\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n2007\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n2007\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale\n2007"
+    "text": "Text hovering\nThis package also give us a option to hover. And we can set it width by giving it a of True/False\n\nkbl(peng) |&gt;\n  kable_classic_2(\"hover\", full_width = F)\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n2007\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n2007\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n2007\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n2007\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n2007\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale\n2007"
+  },
+  {
+    "objectID": "posts/25-07-2023-tablecreation/index.html#table-themes",
+    "href": "posts/25-07-2023-tablecreation/index.html#table-themes",
+    "title": "How to make Tables in R using kableExtra package",
+    "section": "Table Themes",
+    "text": "Table Themes\nThere are many themes present in package and we can use them according to our need. For more themes you can visit to https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html\nHere we use {kable_classic_2}\n\nkbl(peng) |&gt;\n  kable_classic_2()\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n2007\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n2007\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n2007\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n2007\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n2007\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale\n2007"
+  },
+  {
+    "objectID": "posts/25-07-2023-tablecreation/index.html#table-heading",
+    "href": "posts/25-07-2023-tablecreation/index.html#table-heading",
+    "title": "How to make Tables in R using kableExtra package",
+    "section": "Table Heading",
+    "text": "Table Heading\nWhenever we make a table then it is good practice to give heading to the table. For heading, we can use caption argument in {kbl} and give it some values which we be your heading.\n\nkbl(peng, caption = \"Recreating booktabs style table\") |&gt;\n  kable_classic_2() \n\n\nRecreating booktabs style table\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n2007\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n2007\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n2007\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n2007\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n2007\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale\n2007"
+  },
+  {
+    "objectID": "posts/25-07-2023-tablecreation/index.html#highlighting-the-column",
+    "href": "posts/25-07-2023-tablecreation/index.html#highlighting-the-column",
+    "title": "How to make Tables in R using kableExtra package",
+    "section": "Highlighting the column",
+    "text": "Highlighting the column\nIn some case we want to highlight columns, then, column_spec() function we can use.\n\nkbl(peng) |&gt;\n  kable_classic_2() |&gt; \n  column_spec(2, color = \"red\")\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n2007\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n2007\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n2007\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n2007\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n2007\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale\n2007"
+  },
+  {
+    "objectID": "posts/25-07-2023-tablecreation/index.html#font-styles",
+    "href": "posts/25-07-2023-tablecreation/index.html#font-styles",
+    "title": "How to make Tables in R using kableExtra package",
+    "section": "Font styles",
+    "text": "Font styles\nWe all know there are various types of font available on internet and we can use that in our tables. We have to give an argument html_font and give the name of font as a value in html_font.\n\nkbl(peng) |&gt;\n  kable_classic_2(\"hover\", html_font = \"Cambria\")\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n2007\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n2007\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n2007\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n2007\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n2007\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale\n2007"
   }
 ]

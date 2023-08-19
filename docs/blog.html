@@ -70,9 +70,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -134,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="kableExtra">kableExtra <span class="quarto-category-count">(1)</span></div><div class="category" data-category="r4ds">r4ds <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tables">tables <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -146,26 +146,45 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1690263512462" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="0" data-categories="kableExtra,tables,R,r4ds" data-listing-date-sort="1692383400000" data-listing-file-modified-sort="1692451504451" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
 <div class="thumbnail">
 <p><a href="./posts/25-07-2023-tablecreation/index.html"> <img src="./posts/25-07-2023-tablecreation/table.jpg" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/25-07-2023-tablecreation/index.html">
 <h3 class="no-anchor listing-title">
-How to make Tables in R using kableextra package
+How to make Tables in R using kableExtra package
 </h3>
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('kableExtra'); return false;">
+kableExtra
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('tables'); return false;">
+tables
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('r4ds'); return false;">
+r4ds
+</div>
+</div>
+<a href="./posts/25-07-2023-tablecreation/index.html">
 <div class="listing-description">
 
-These are the top six rows of the <code>penguins</code> data set.
+kableExtra is the package in R and helps us to build common complex tables and also manipulate table styles. Today we are going to learn the use of <code>{kableExtra}</code> to make tables.…<code></code><code></code>
 </div>
 </a>
 </div>
 <div class="metadata">
 <a href="./posts/25-07-2023-tablecreation/index.html">
+<div class="listing-date">
+Aug 19, 2023
+</div>
 <div class="listing-author">
 Krushna Hajare
 </div>

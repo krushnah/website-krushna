@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Krushna Hajare">
+<meta name="dcterms.date" content="2023-08-19">
 
-<title>Krushna Hajare - How to make Tables in R using kableextra package</title>
+<title>Krushna Hajare - How to make Tables in R using kableExtra package</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,7 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -137,14 +138,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#table-themes" id="toc-table-themes" class="nav-link active" data-scroll-target="#table-themes">Table Themes</a></li>
+  <li><a href="#table-heading" id="toc-table-heading" class="nav-link" data-scroll-target="#table-heading">Table Heading</a></li>
+  <li><a href="#text-hovering" id="toc-text-hovering" class="nav-link" data-scroll-target="#text-hovering">Text hovering</a></li>
+  <li><a href="#highlighting-the-column" id="toc-highlighting-the-column" class="nav-link" data-scroll-target="#highlighting-the-column">Highlighting the column</a></li>
+  <li><a href="#font-styles" id="toc-font-styles" class="nav-link" data-scroll-target="#font-styles">Font styles</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">How to make Tables in R using kableextra package</h1>
-</div>
+<h1 class="title">How to make Tables in R using kableExtra package</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">kableExtra</div>
+    <div class="quarto-category">tables</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">r4ds</div>
+  </div>
+  </div>
 
 
 
@@ -157,6 +176,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 19, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -164,15 +189,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>These are the top six rows of the <code>penguins</code> data set.</p>
+<p>kableExtra is the package in R and helps us to build common complex tables and also manipulate table styles. Today we are going to learn the use of <code>{kableExtra}</code> to make tables. And we are using <code>penguins</code> from <code>{palmerpenguins}</code>dataset for that.</p>
+<p>To use the package we have to call it. Here we called <code>{kableExtra}</code> and <code>{palmerpenguins}</code> packages. These are the top six rows of the <code>penguins</code> data set.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|label: head of penguin data </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>peng <span class="ot">&lt;-</span> <span class="fu">head</span>(penguins)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>peng</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>peng <span class="ot">&lt;-</span> <span class="fu">head</span>(penguins)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>peng</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 8
   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
@@ -186,98 +210,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
 </div>
 </div>
-<p>These are the last six rows of the <code>penguins</code> data set from R package <code>{palmerpenguins}</code>.</p>
+<blockquote class="blockquote">
+<p>same way we can see last rows by using tail() function</p>
+</blockquote>
+<section id="table-themes" class="level2">
+<h2 class="anchored" data-anchor-id="table-themes">Table Themes</h2>
+<p>There are many themes present in package and we can use them according to our need. For more themes you can visit to <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html" class="uri">https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html</a></p>
+<p>Here we use <code>{kable_classic_2}</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>peng_tail <span class="ot">&lt;-</span> <span class="fu">kbl</span>(<span class="fu">tail</span>(penguins))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>peng_tail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">species</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">island</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">bill_length_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">bill_depth_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">flipper_length_mm</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">body_mass_g</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">sex</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">year</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Chinstrap</td>
-<td style="text-align: left;">Dream</td>
-<td style="text-align: right;">45.7</td>
-<td style="text-align: right;">17.0</td>
-<td style="text-align: right;">195</td>
-<td style="text-align: right;">3650</td>
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">2009</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Chinstrap</td>
-<td style="text-align: left;">Dream</td>
-<td style="text-align: right;">55.8</td>
-<td style="text-align: right;">19.8</td>
-<td style="text-align: right;">207</td>
-<td style="text-align: right;">4000</td>
-<td style="text-align: left;">male</td>
-<td style="text-align: right;">2009</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Chinstrap</td>
-<td style="text-align: left;">Dream</td>
-<td style="text-align: right;">43.5</td>
-<td style="text-align: right;">18.1</td>
-<td style="text-align: right;">202</td>
-<td style="text-align: right;">3400</td>
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">2009</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Chinstrap</td>
-<td style="text-align: left;">Dream</td>
-<td style="text-align: right;">49.6</td>
-<td style="text-align: right;">18.2</td>
-<td style="text-align: right;">193</td>
-<td style="text-align: right;">3775</td>
-<td style="text-align: left;">male</td>
-<td style="text-align: right;">2009</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Chinstrap</td>
-<td style="text-align: left;">Dream</td>
-<td style="text-align: right;">50.8</td>
-<td style="text-align: right;">19.0</td>
-<td style="text-align: right;">210</td>
-<td style="text-align: right;">4100</td>
-<td style="text-align: left;">male</td>
-<td style="text-align: right;">2009</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Chinstrap</td>
-<td style="text-align: left;">Dream</td>
-<td style="text-align: right;">50.2</td>
-<td style="text-align: right;">18.7</td>
-<td style="text-align: right;">198</td>
-<td style="text-align: right;">3775</td>
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">2009</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-<section id="table-styles" class="level2">
-<h2 class="anchored" data-anchor-id="table-styles">Table Styles</h2>
-<p>This is classic_2 theme</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(peng) <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(peng) <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="lightable-classic-2 table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -360,8 +302,98 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
+<section id="table-heading" class="level2">
+<h2 class="anchored" data-anchor-id="table-heading">Table Heading</h2>
+<p>Whenever we make a table then it is good practice to give heading to the table. For heading, we can use caption argument in <code>{kbl}</code> and give it some values which we be your heading.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(peng, <span class="at">caption =</span> <span class="st">"Recreating booktabs style table"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="lightable-classic-2 table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Recreating booktabs style table</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">species</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">island</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">bill_length_mm</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">bill_depth_mm</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">flipper_length_mm</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">body_mass_g</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">sex</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">181</td>
+<td style="text-align: right;">3750</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">39.5</td>
+<td style="text-align: right;">17.4</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">3800</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">40.3</td>
+<td style="text-align: right;">18.0</td>
+<td style="text-align: right;">195</td>
+<td style="text-align: right;">3250</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">36.7</td>
+<td style="text-align: right;">19.3</td>
+<td style="text-align: right;">193</td>
+<td style="text-align: right;">3450</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">20.6</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">3650</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">2007</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
 <section id="text-hovering" class="level2">
 <h2 class="anchored" data-anchor-id="text-hovering">Text hovering</h2>
+<p>This package also give us a option to hover. And we can set it width by giving it a of True/False</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(peng) <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>(<span class="st">"hover"</span>, <span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -446,7 +478,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet mauris in ex ultricies elementum vel rutrum dolor. Phasellus tempor convallis dui, in hendrerit mauris placerat scelerisque. Maecenas a accumsan enim, a maximus velit. Pellentesque in risus eget est faucibus convallis nec at nulla. Phasellus nec lacinia justo. Morbi fermentum, orci id varius accumsan, nibh neque porttitor ipsum, consectetur luctus risus arcu ac ex. Aenean a luctus augue. Suspendisse et auctor nisl. Suspendisse cursus ultrices quam non vulputate. Phasellus et pharetra neque, vel feugiat erat. Sed feugiat elit at mauris commodo consequat. Sed congue lectus id mattis hendrerit. Mauris turpis nisl, congue eget velit sed, imperdiet convallis magna. Nam accumsan urna risus, non feugiat odio vehicula eget.</p>
+</section>
+<section id="highlighting-the-column" class="level2">
+<h2 class="anchored" data-anchor-id="highlighting-the-column">Highlighting the column</h2>
+<p>In some case we want to highlight columns, then, <code>column_spec()</code> function we can use.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(peng) <span class="sc">|&gt;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>() <span class="sc">|&gt;</span> </span>
@@ -519,6 +554,94 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td style="text-align: left;">Adelie</td>
 <td style="text-align: left; color: red !important;">Torgersen</td>
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">20.6</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">3650</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">2007</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="font-styles" class="level2">
+<h2 class="anchored" data-anchor-id="font-styles">Font styles</h2>
+<p>We all know there are various types of font available on internet and we can use that in our tables. We have to give an argument <code>html_font</code> and give the name of font as a value in html_font.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(peng) <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>(<span class="st">"hover"</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="lightable-classic-2 lightable-hover table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">species</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">island</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">bill_length_mm</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">bill_depth_mm</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">flipper_length_mm</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">body_mass_g</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">sex</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">181</td>
+<td style="text-align: right;">3750</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">39.5</td>
+<td style="text-align: right;">17.4</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">3800</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">40.3</td>
+<td style="text-align: right;">18.0</td>
+<td style="text-align: right;">195</td>
+<td style="text-align: right;">3250</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">36.7</td>
+<td style="text-align: right;">19.3</td>
+<td style="text-align: right;">193</td>
+<td style="text-align: right;">3450</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">2007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Torgersen</td>
 <td style="text-align: right;">39.3</td>
 <td style="text-align: right;">20.6</td>
 <td style="text-align: right;">190</td>
